@@ -8,7 +8,7 @@ public class doc_so_thanh_chu {
         System.out.print("Nhập số: ");
         int nhapSoNguyen = sc.nextInt();
         if(nhapSoNguyen >= 10 && nhapSoNguyen < 20){
-
+//
         }
         switch (nhapSoNguyen) {
             case 1:
