@@ -1,8 +1,9 @@
-package ss1_introduction_to_java.thuc_hanh;
+package ss1_introduction_to_java.practice;
 
 import java.util.Scanner;
 
-public class su_dung_toan_tu {
+public class UsingTheOperator {
+    //    Sử dụng toán tử
     public static void main(String[] args) {
         float width;
         float height;

@@ -1,9 +1,10 @@
-package ss1_introduction_to_java.thuc_hanh;
+package ss1_introduction_to_java.practice;
 
 import java.util.Scanner;
 
-public class tinh_chi_so_bmi {
+public class CalculateBMI {
     public static void main(String[] args) {
+//        Tính BMI
         Scanner scanner = new Scanner(System.in);
         double weight, height, bmi;
         System.out.print("Your weight (in kilogram):");

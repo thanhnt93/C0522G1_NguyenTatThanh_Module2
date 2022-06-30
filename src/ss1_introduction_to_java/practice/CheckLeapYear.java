@@ -1,8 +1,9 @@
-package ss1_introduction_to_java.thuc_hanh;
+package ss1_introduction_to_java.practice;
 
 import java.util.Scanner;
 
-public class kiem_tra_nam_nhuan {
+public class CheckLeapYear {
+//    Kiểm tra năm nhuận
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int year;

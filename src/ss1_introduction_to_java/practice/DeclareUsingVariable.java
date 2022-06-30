@@ -1,6 +1,7 @@
-package ss1_introduction_to_java.thuc_hanh;
+package ss1_introduction_to_java.practice;
 
-public class khai_bao_su_dung_bien {
+public class DeclareUsingVariable {
+    //    Khai báo sử dụng biến
     public static void main(String[] args) {
         int i = 10;
         float f = 20.5f;

@@ -1,8 +1,9 @@
-package ss1_introduction_to_java.thuc_hanh;
+package ss1_introduction_to_java.practice;
 
 import java.util.Scanner;
 
-public class tinh_so_ngay_trong_thang {
+public class CalculateTheNumberOfDaysInTheMonth {
+    //    Tính số ngày trong tháng
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
