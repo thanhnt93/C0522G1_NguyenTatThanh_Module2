@@ -2,7 +2,7 @@ package ss1IntroductionToJava.exercise;
 
 import java.util.Scanner;
 
-public class ReadNumberToLetter {
+ class ReadNumberToLetter {
     //Đọc số thành chữ
     public static void main(String[] args) {
 

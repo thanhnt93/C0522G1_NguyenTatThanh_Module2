@@ -1,4 +1,4 @@
-package ss2_loop_java.practice;
+package ss2LoopJava.practice;
 
 import java.util.Scanner;
 
