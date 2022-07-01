@@ -1,4 +1,4 @@
-package ss1IntroductionToJava.practice;
+package ss1_introduction_to_java.practice;
 
 public class DeclareUsingVariable {
     //    Khai báo sử dụng biến

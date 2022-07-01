@@ -1,12 +1,12 @@
-package ss1IntroductionToJava.exercise;
+package ss1_introduction_to_java.exercise;
 
 import java.util.Scanner;
 
- class ReadNumberToLetter {
+class ReadNumberToLetter {
     //Đọc số thành chữ
     public static void main(String[] args) {
 
-        System.out.println("Enter your number:");
+        System.out.print("Nhập số: ");
         Scanner numberInput = new Scanner(System.in);
         int number = numberInput.nextInt();
 
@@ -17,44 +17,44 @@ import java.util.Scanner;
             int tens = number % 100;
             switch (hundreds) {
                 case 1:
-                    System.out.print("one hundred and ");
+                    System.out.print("One hundred and ");
                     numberLessThan100(tens);
                     break;
                 case 2:
-                    System.out.print("two hundred and ");
+                    System.out.print("Two hundred and ");
                     numberLessThan100(tens);
                     break;
                 case 3:
-                    System.out.print("three hundred and ");
+                    System.out.print("Three hundred and ");
                     numberLessThan100(tens);
                     break;
                 case 4:
-                    System.out.print("four hundred and ");
+                    System.out.print("Four hundred and ");
                     numberLessThan100(tens);
                     break;
                 case 5:
-                    System.out.print("five hundred and ");
+                    System.out.print("Five hundred and ");
                     numberLessThan100(tens);
                     break;
                 case 6:
-                    System.out.print("six hundred and ");
+                    System.out.print("Six hundred and ");
                     numberLessThan100(tens);
                     break;
                 case 7:
-                    System.out.print("seven hundred and ");
+                    System.out.print("Seven hundred and ");
                     numberLessThan100(tens);
                     break;
                 case 8:
-                    System.out.print("eight hundred and ");
+                    System.out.print("Eight hundred and ");
                     numberLessThan100(tens);
                     break;
                 case 9:
-                    System.out.print("nine hundred and ");
+                    System.out.print("Nine hundred and ");
                     numberLessThan100(tens);
                     break;
             }
         } else {
-            System.out.println("out of ability");
+            System.out.println("Out of ability");
         }
     }
 
@@ -62,44 +62,44 @@ import java.util.Scanner;
         if (number < 10) {
             switch (number) {
                 case 0:
-                    System.out.println("zero");
+                    System.out.println("Zero");
                     break;
                 case 1:
-                    System.out.println("one");
+                    System.out.println("One");
                     break;
                 case 2:
-                    System.out.println("two");
+                    System.out.println("Two");
                     break;
                 case 3:
-                    System.out.println("three");
+                    System.out.println("Three");
                     break;
                 case 4:
-                    System.out.println("four");
+                    System.out.println("Four");
                     break;
                 case 5:
-                    System.out.println("five");
+                    System.out.println("Five");
                     break;
                 case 6:
-                    System.out.println("six");
+                    System.out.println("Six");
                     break;
                 case 7:
-                    System.out.println("seven");
+                    System.out.println("Seven");
                     break;
                 case 8:
-                    System.out.println("eight");
+                    System.out.println("Eight");
                     break;
                 case 9:
-                    System.out.println("nine");
+                    System.out.println("Nine");
                     break;
             }
         } else if (number < 20) {
             int ones = number % 10;
             switch (ones) {
                 case 0:
-                    System.out.println("ten");
+                    System.out.println("Ten");
                     break;
                 case 1:
-                    System.out.println("eleven");
+                    System.out.println("Eleven");
                     break;
                 case 2:
                     System.out.println("Twelve");
