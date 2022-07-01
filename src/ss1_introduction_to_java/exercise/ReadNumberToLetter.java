@@ -59,7 +59,7 @@ class ReadNumberToLetter {
     }
 
     public static void numberLessThan100(int number) {
-        if (number < 10) {
+        if (number <= 10) {
             switch (number) {
                 case 0:
                     System.out.println("Zero");
@@ -91,13 +91,14 @@ class ReadNumberToLetter {
                 case 9:
                     System.out.println("Nine");
                     break;
+                case 10:
+                    System.out.println("Ten");
+                    break;
+
             }
         } else if (number < 20) {
             int ones = number % 10;
             switch (ones) {
-                case 0:
-                    System.out.println("Ten");
-                    break;
                 case 1:
                     System.out.println("Eleven");
                     break;
