@@ -1,8 +1,5 @@
 package ss2_loop_java.exercise;
 
-import sun.awt.geom.AreaOp;
-import sun.text.resources.uk.JavaTimeSupplementary_uk;
-
 import java.util.Scanner;
 
 public class ShowGeometricTypes {
@@ -21,7 +18,6 @@ public class ShowGeometricTypes {
             int height;
             switch (choice) {
                 case 1:
-
                     //Hình chữ nhật
                     System.out.print("Nhập chiều dài: ");
                     int width = input.nextInt();
