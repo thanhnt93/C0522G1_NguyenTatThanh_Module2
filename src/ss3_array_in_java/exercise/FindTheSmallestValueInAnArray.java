@@ -38,7 +38,7 @@ public class FindTheSmallestValueInAnArray {
     public static int minArr(int[][] arr) {
         int min = arr[0][0];
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 1; j < arr[i].length; j++) {
+            for (int j = 0; j < arr[i].length; j++) {
                 if (arr[i][j] < min) {
                     min = arr[i][j];
                 }
