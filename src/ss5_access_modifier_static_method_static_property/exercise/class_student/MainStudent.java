@@ -6,6 +6,6 @@ public class MainStudent {
         String name = student.setName("Nguyễn Tất Thành");
         String classed = student.setClasses("C0522G1");
 
-//        System.out.print("Name: " + name + "\t Class: " + classed);
+        System.out.print("Name: " + name + "\t Class: " + classed);
     }
 }

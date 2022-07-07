@@ -7,6 +7,6 @@ public class MainFan {
 //        Fan fan = new Fan();
 //        String toString1 = fan1.toString();
         System.out.print(fan1);
-//        System.out.print(fan2);
+        System.out.print(fan2);
     }
 }
