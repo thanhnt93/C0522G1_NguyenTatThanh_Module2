@@ -1,8 +1,8 @@
 package ss6_inheritance.exercise.point2d_and_point3d;
 
 public class Point2D {
-    float x = 0.0f;
-    float y = 0.0f;
+    private float x = 0.0f;
+    private float y = 0.0f;
 
     public Point2D() {
     }

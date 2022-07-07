@@ -19,22 +19,22 @@ public class Point3D extends Point2D {
         this.z = z;
     }
 
-    public void setXY(float x, float y, float z) {
-        this.y = y;
-        this.x = x;
+    public void setXYZ(float x, float y, float z) {
+        this.setX(x);
+        this.setY(y);
         this.z = z;
     }
 
     public float[] getXYZ() {
-        float[] arr = {x, y, z};
+        float[] arr = {getX(), getY(), z};
         return arr;
     }
 
     @Override
     public String toString() {
         return "Point3D{ " +
-                "x=" + x +
-                ", y=" + y +
-                ", z=" + z + " }";
+                "x = " + getX() +
+                ", y = " + getY() +
+                ", z = " + z + " }";
     }
 }

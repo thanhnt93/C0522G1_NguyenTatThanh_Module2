@@ -49,11 +49,12 @@ public class MoveablePoint extends Point {
         return "MoveablePoint{ " +
                 "xSpeed=" + xSpeed +
                 ", ySpeed=" + ySpeed +
-                ", x=" + x +
-                ", y=" + y + " }";
+                ", x=" + getX() +
+                ", y=" + getY() + " }";
     }
 
     public MoveablePoint move() {
+
         x += xSpeed;
         y += ySpeed;
         return this;
