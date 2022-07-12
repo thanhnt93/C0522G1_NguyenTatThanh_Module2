@@ -45,7 +45,7 @@ public class TennisGame {
     }
 
     public static String getTempScore(int firstScore, int secondScore) {
-        int tempScore =0;
+        int tempScore;
         for (int i = 1; i < 40; i++) {
             if (i == 1) {
                 tempScore = firstScore;
