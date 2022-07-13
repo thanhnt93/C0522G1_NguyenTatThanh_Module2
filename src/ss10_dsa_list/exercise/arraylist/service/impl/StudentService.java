@@ -1,10 +1,23 @@
 package ss10_dsa_list.exercise.arraylist.service.impl;
 
 import ss10_dsa_list.exercise.arraylist.service.IStudentService;
-
+import ss10_dsa_list.exercise.arraylist.model.Student;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class StudentService<E> implements IStudentService {
+    public static List<Object> people = new ArrayList<>();
+    static {
+
+        people.add(new Student(1, "Văn Phúc"));
+        people.add(new Student(2, "Thủy Tiên"));
+        people.add(new Student(3, "Tất Thành"));
+        people.add(new Student(4, "Bùi Hùng"));
+        people.add(new Student(5, "Tấn Huân"));
+        people.add(new Student(6, "Minh Tiến"));
+
+    }
     /**
      * Số lượng phần tử trong MyArrayList
      */
@@ -46,6 +59,7 @@ public class StudentService<E> implements IStudentService {
      *
      * @return
      */
+    @Override
     public int size() {
         return this.size;
     }
@@ -53,6 +67,7 @@ public class StudentService<E> implements IStudentService {
     /**
      * Phương thức clear của StudentService
      */
+    @Override
     public void clear() {
         size = 0;
         for (int i = 0; i < element.length; i++) {
@@ -66,7 +81,8 @@ public class StudentService<E> implements IStudentService {
      * @param elements
      * @return true
      */
-    public boolean add(E elements) {
+    @Override
+    public boolean add(Object elements) {
         if (element.length == size) {
             this.ensureCapacity(5);
         }
@@ -95,28 +111,11 @@ public class StudentService<E> implements IStudentService {
         }
     }
 
-//    public void add(E elements, int index){
-//        if(index > element.length){
-//            throw new IllegalArgumentException("Index: " + index);
-//        } else if(element.length == size){
-//            this.ensureCapacity(5);
-//        }
-//
-//        if(element[index] == null){
-//            element[index] = elements;
-//            size++;
-//        } else {
-//            for (int i = size + 1; i >= index; i--){
-//                element[i] = element[i - 1];
-//            }
-//            element[index] = element;
-//            size++;
-//        }
-//    }
 
     /**
      * Phương thức tăng kích thước ArrayList
      */
+    @Override
     public void ensureCapacity(int minCapacity) {
         if (minCapacity >= 0) {
             int newSize = this.element.length + minCapacity;
@@ -128,11 +127,12 @@ public class StudentService<E> implements IStudentService {
     }
 
     /**
-     * Phương thức lấy 1 elemnet tại vị trí index
+     * Phương thức lấy 1 element tại vị trí index
      *
      * @param index
      * @return
      */
+    @Override
     public E get(int index) {
         return (E) element[index];
     }
@@ -144,7 +144,8 @@ public class StudentService<E> implements IStudentService {
      * @param element
      * @return
      */
-    public int indexOf(E element) {
+    @Override
+    public int indexOf(Object element) {
         int index = -1;
         for (int i = 0; i < size; i++) {
             if (this.element[i].equals(element)) {
@@ -160,7 +161,8 @@ public class StudentService<E> implements IStudentService {
      * @param elenment
      * @return
      */
-    public boolean contains(E elenment) {
+    @Override
+    public boolean contains(Object elenment) {
         return this.indexOf(elenment) >= 0;
     }
 
@@ -170,8 +172,9 @@ public class StudentService<E> implements IStudentService {
      *
      * @return
      */
-    public StudentService<E> clone() {
-        StudentService<E> eStudentService = new StudentService<>();
+    @Override
+    public StudentService<Object> clone() {
+        StudentService<Object> eStudentService = new StudentService<>();
         eStudentService.element = Arrays.copyOf(this.element, this.size);
         eStudentService.size = this.size;
         return eStudentService;
@@ -179,12 +182,13 @@ public class StudentService<E> implements IStudentService {
 
 
     /**
-     * Phương thức xóa phần tử tại vị trí Inde
+     * Phương thức xóa phần tử tại vị trí Index
      *
      * @param index
      * @return
      */
-    public E remove(int index) {
+    @Override
+    public Object remove(int index) {
         if (index < 0 || index > element.length) {
             throw new IllegalArgumentException("Error index" + index);
         }
@@ -195,6 +199,16 @@ public class StudentService<E> implements IStudentService {
         element[size - 1] = null;
         size--;
         return elements;
+    }
+
+    @Override
+    public void findAll() {
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i) instanceof Student) {
+                System.out.println(people.get(i));
+            }
+        }
+
     }
 
 
