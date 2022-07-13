@@ -1,6 +1,5 @@
 package ss10_dsa_list.exercise.arraylist.controller;
 
-
 import ss10_dsa_list.exercise.arraylist.model.Student;
 import ss10_dsa_list.exercise.arraylist.service.IStudentService;
 import ss10_dsa_list.exercise.arraylist.service.impl.StudentService;
@@ -9,7 +8,7 @@ import java.util.Scanner;
 
 public class MyListController {
     IStudentService iStudentService = new StudentService<>();
-    StudentService studentService = new StudentService();
+//    StudentService studentService = new StudentService();
 
     public void displayMenu() {
         Scanner sc = new Scanner(System.in);
@@ -18,13 +17,12 @@ public class MyListController {
             System.out.println("======== Menu ========");
             System.out.println("1. Hiển thị danh sách");
             System.out.println("2. Thêm mới");
-            System.out.println("3. Kiểm tra danh sách có hay không ?");
-            System.out.println("4. Xóa");
-            System.out.println("5. Thoát");
+            System.out.println("3. Xóa");
+            System.out.println("4. Thoát");
             System.out.print("Nhập sự lựa chọn của bạn: ");
             choose = Integer.parseInt(sc.nextLine());
 
-            if (choose < 1 || choose > 5) {
+            if (choose < 1 || choose > 4) {
                 System.out.println("Lựa chọn không hợp lại, vui lòng nhập lại: ");
                 continue;
             }
@@ -42,11 +40,17 @@ public class MyListController {
                     StudentService.people.add(new Student(id,name));
                     break;
                 case 3:
+                    iStudentService.findAll();
+                    System.out.print("Bạn muốn xóa vị trí nào: ");
+                    int index = Integer.parseInt(sc.nextLine());
 
+                    StudentService.people.remove(index);
+
+                    System.out.println("Vị trí " + index + " sau xóa");
+                    iStudentService.findAll();
                     break;
                 case 4:
-                    break;
-                case 5:
+                    System.out.println("Bạn đã thoát Menu !");
                     System.exit(0);
             }
         } while (true);
