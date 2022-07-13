@@ -1,7 +1,5 @@
 package ss7_abstract_class_interface.exercise.interface_colorable.model;
 
-
-
 public class Circle extends Shape {
     private double radius = 1.0;
 

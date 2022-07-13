@@ -1,4 +1,6 @@
-package ss10_dsa_list.practice.simple_list;
+package ss10_dsa_list.practice.simple_list.controller;
+
+import ss10_dsa_list.practice.simple_list.model.MyList;
 
 public class MyListTest {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ss10_dsa_list.practice.simple_list;
+package ss10_dsa_list.practice.simple_list.model;
 
 import java.util.Arrays;
 

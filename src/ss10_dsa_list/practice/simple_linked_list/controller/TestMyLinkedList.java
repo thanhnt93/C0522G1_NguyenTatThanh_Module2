@@ -1,4 +1,6 @@
-package ss10_dsa_list.practice.simple_linked_list;
+package ss10_dsa_list.practice.simple_linked_list.controller;
+
+import ss10_dsa_list.practice.simple_linked_list.model.MyLinkedList;
 
 public class TestMyLinkedList {
     public static void main(String[] args) {

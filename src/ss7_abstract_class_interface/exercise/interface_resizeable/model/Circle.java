@@ -1,6 +1,6 @@
 package ss7_abstract_class_interface.exercise.interface_resizeable.model;
 
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape{
     private double radius = 1.0;
 
     public Circle() {

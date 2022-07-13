@@ -1,6 +1,5 @@
 package ss7_abstract_class_interface.exercise.interface_colorable.model;
 
-import ss7_abstract_class_interface.exercise.interface_resizeable.model.Resizeable;
 
 public class Rectangle extends Shape{
     private double width = 1.0;
