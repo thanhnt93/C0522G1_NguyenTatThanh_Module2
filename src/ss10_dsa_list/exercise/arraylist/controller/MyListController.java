@@ -8,7 +8,10 @@ import java.util.Scanner;
 
 public class MyListController {
     IStudentService iStudentService = new StudentService<>();
-//    StudentService studentService = new StudentService();
+    //    StudentService studentService = new StudentService();
+//    Student student1 = new Student(1, "Thành");
+//    Student student2 = new Student(2, "Thành");
+//    Student student3 = new Student(3, "Thành");
 
     public void displayMenu() {
         Scanner sc = new Scanner(System.in);
@@ -37,7 +40,7 @@ public class MyListController {
                     System.out.print("Nhập tên: ");
                     String name = sc.nextLine();
 
-                    StudentService.people.add(new Student(id,name));
+                    StudentService.people.add(new Student(id, name));
                     break;
                 case 3:
                     iStudentService.findAll();
