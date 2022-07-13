@@ -1,7 +1,6 @@
 package demo_mvc.service.impl;
 
 import demo_mvc.model.Person;
-import demo_mvc.model.Person;
 import demo_mvc.model.Student;
 import demo_mvc.model.Teacher;
 import demo_mvc.service.IPersonService;
