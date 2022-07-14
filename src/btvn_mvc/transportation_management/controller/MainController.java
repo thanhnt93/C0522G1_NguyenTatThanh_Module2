@@ -46,7 +46,7 @@ public class MainController {
                     break;
                 }
                 case 4: {
-                   searchingForTheSeaOfControl();
+                    searchingForTheSeaOfControl();
                     break;
                 }
                 case 5: {
@@ -56,14 +56,14 @@ public class MainController {
         } while (true);
     }
 
-    private static void checkLicensePlate(){
+    private static void checkLicensePlate() {
         do {
             System.out.print("Nhập biển số xe cần xóa: ");
             String seaOfControl = sc.nextLine();
 
             char index = seaOfControl.charAt(3);
 
-            switch (index){
+            switch (index) {
                 case 'C':
                     iCarService.removeCar(seaOfControl);
                     return;
@@ -76,16 +76,16 @@ public class MainController {
                 default:
                     System.out.println("Định dạng biển số xe sai, mời nhập lại!!! ");
             }
-        }while (true);
+        } while (true);
     }
 
-    private static void searchingForTheSeaOfControl(){
+    private static void searchingForTheSeaOfControl() {
         do {
-            System.out.print("Nhập biển số xe cần xóa: ");
+            System.out.print("Nhập biển số xe cần tìm kiếm: ");
             String seaOfControl = sc.nextLine();
 
             char index = seaOfControl.charAt(3);
-            switch (index){
+            switch (index) {
                 case 'C':
                     iCarService.searchingForTheSeaOfControl(seaOfControl);
                     return;
@@ -98,6 +98,6 @@ public class MainController {
                 default:
                     System.out.println("Biển số xe sai, mời nhập lại!!! ");
             }
-        }while (true);
+        } while (true);
     }
 }
