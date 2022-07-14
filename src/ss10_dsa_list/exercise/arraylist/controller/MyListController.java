@@ -4,6 +4,8 @@ import ss10_dsa_list.exercise.arraylist.model.Student;
 import ss10_dsa_list.exercise.arraylist.service.IStudentService;
 import ss10_dsa_list.exercise.arraylist.service.impl.StudentService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyListController {
@@ -12,6 +14,10 @@ public class MyListController {
 //    Student student1 = new Student(1, "Thành");
 //    Student student2 = new Student(2, "Thành");
 //    Student student3 = new Student(3, "Thành");
+//    List<Student> student = new ArrayList<>();
+//        student.add(student1);
+//        student.add(student2);
+//        student.add(student3);
 
     public void displayMenu() {
         Scanner sc = new Scanner(System.in);
