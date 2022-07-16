@@ -56,6 +56,7 @@ public class MainController {
         } while (true);
     }
 
+
     private static void checkLicensePlate() {
         do {
             System.out.print("Nhập biển số xe cần xóa: ");
