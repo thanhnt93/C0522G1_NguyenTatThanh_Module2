@@ -36,7 +36,7 @@ public class ProductService implements IProductManager {
 
     /**
      * Phương thức chỉnh sửa thông tin sản phẩm dựa trên id sản phẩm
-     * @param productID
+     * @param productID: ID sản phẩm cần chỉnh sửa
      */
     @Override
     public void updateProduct(int productID) {
@@ -70,7 +70,7 @@ public class ProductService implements IProductManager {
         boolean isFlag = false;
         for (Product product : productList) {
             if (product.getProductID() == idRemove) {
-                System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
+                System.out.println("Bạn có chắc muốn xóa hay không? \n" +
                         "1. Có \n" +
                         "2. Không");
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
@@ -100,7 +100,7 @@ public class ProductService implements IProductManager {
 
     /**
      * Phương thức tìm kiếm sản phẩm dựa trên tên sản phẩm
-     * @param productName
+     * @param productName: Tên sản phẩm tìm kiếm
      */
     @Override
     public void searchProduct(String productName) {
@@ -153,7 +153,6 @@ public class ProductService implements IProductManager {
         System.out.print("Nhập giá sản phẩm: ");
         int price = Integer.parseInt(scanner.nextLine());
 
-        Product product = new Product(productID, productName, productInformation, price);
-        return product;
+        return new Product(productID, productName, productInformation, price);
     }
 }
