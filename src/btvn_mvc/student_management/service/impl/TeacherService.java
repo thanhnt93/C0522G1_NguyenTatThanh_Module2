@@ -25,6 +25,9 @@ public class TeacherService implements ITeacherService {
         teacherList.add(teacher5);
     }
 
+    /**
+     * Phương thức thêm thông tin của giảng viên
+     */
     @Override
     public void addTeacher() {
         Teacher teacher = infoTeacher();
@@ -32,6 +35,9 @@ public class TeacherService implements ITeacherService {
         System.out.println("Thêm mới thành công!. ");
     }
 
+    /**
+     * Phương thức hiển thị tất cả thông tin của giảng viên
+     */
     @Override
     public void displayAllTeacher() {
         for (Teacher teacher : teacherList) {
@@ -39,6 +45,9 @@ public class TeacherService implements ITeacherService {
         }
     }
 
+    /**
+     * Phương thức xóa thông tin của giảng viên
+     */
     @Override
     public void removeTeacher() {
         System.out.println("Mời bạn nhập id giảng viên cần xóa: ");
@@ -64,6 +73,11 @@ public class TeacherService implements ITeacherService {
         }
     }
 
+    /**
+     * Phương thức nhập thông tin của giảng viên
+     *
+     * @return trả về thông tin của của giảng viên
+     */
     public static Teacher infoTeacher() {
         System.out.println("--NHẬP THÔNG TIN GIẢNG VIÊN--");
         System.out.print("Nhập id: ");
@@ -76,8 +90,8 @@ public class TeacherService implements ITeacherService {
         String sex = scanner.nextLine();
         System.out.print("Nhập chuyên môn: ");
         String specialize = scanner.nextLine();
-        Teacher teacher = new Teacher(id, name, dateOfBirth, sex, specialize);
-        return teacher;
+
+        return new Teacher(id, name, dateOfBirth, sex, specialize);
     }
 
 }
