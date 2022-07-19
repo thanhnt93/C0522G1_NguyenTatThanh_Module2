@@ -68,6 +68,17 @@ public class StudentService implements IStudentService {
         }
     }
 
+    @Override
+    public void searchStudentsById() {
+        System.out.println("Mời bạn nhập id học sinh cần tìm: ");
+        int searchId = Integer.parseInt(scanner.nextLine());
+        for (Student student : studentList) {
+            if (searchId == student.getId()) {
+                System.out.println(student);
+            }
+        }
+    }
+
     public static Student infoStudent() {
         System.out.println("--NHẬP THÔNG TIN HỌC SINH--");
         System.out.print("Nhập id: ");

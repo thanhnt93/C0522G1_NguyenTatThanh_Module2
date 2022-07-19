@@ -33,6 +33,7 @@ public class MainController {
                 case 2: {
                     System.out.print("Nhập id sản phẩm cần chỉnh sửa: ");
                     int productID = Integer.parseInt(sc.nextLine());
+
                     iProductManager.updateProduct(productID);
                     System.out.println("--------------------------------------------");
                     break;
@@ -50,6 +51,7 @@ public class MainController {
                 case 5: {
                     System.out.print("Nhập sản phẩm cần tìm kiếm: ");
                     String productName = sc.nextLine();
+
                     iProductManager.searchProduct(productName);
                     System.out.println("--------------------------------------------");
                     break;
