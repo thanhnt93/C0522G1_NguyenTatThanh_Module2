@@ -15,7 +15,7 @@ public class StudentController {
                     "1. Thêm mới học sinh \n" +
                     "2. Xóa học sinh \n" +
                     "3. Xem danh sách học sinh \n" +
-                    "4. Tìm kiếm học sinh theo ID \n" +
+                    "4. Tìm kiếm học sinh theo ID hoặc Tên học sinh \n" +
                     "5. Quay về menu chính. \n" +
                     "Mời bạn nhập lựa chọn: ");
             int choose = Integer.parseInt(sc.nextLine());
@@ -34,7 +34,7 @@ public class StudentController {
                     System.out.println("--------------------------------------------");
                     break;
                 case 4:
-                    iStudentService.searchStudentsById();
+                    iStudentService.searchStudentsByIdAndName();
                     System.out.println("--------------------------------------------");
                     break;
                 case 5:

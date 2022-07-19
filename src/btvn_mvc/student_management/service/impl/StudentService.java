@@ -81,12 +81,31 @@ public class StudentService implements IStudentService {
      * Phương thức tìm kiếm thông tin học sinh thông qua id học sinh
      */
     @Override
-    public void searchStudentsById() {
-        System.out.println("Mời bạn nhập id học sinh cần tìm: ");
-        int searchId = Integer.parseInt(scanner.nextLine());
-        for (Student student : studentList) {
-            if (searchId == student.getId()) {
-                System.out.println(student);
+    public void searchStudentsByIdAndName() {
+        System.out.print("Bạn muốn tìm kiếm theo tên hay id! \n" +
+                "1. Tìm kiếm theo id. \n" +
+                "2. Tìm kiếm theo tên. \n" +
+                "Lựa chọn của bạn: ");
+        int choose = Integer.parseInt(scanner.nextLine());
+
+        if (choose == 1) {
+            System.out.print("Mời bạn nhập id sinh viên cần tìm: ");
+            int searchId = Integer.parseInt(scanner.nextLine());
+
+            for (Student student : studentList) {
+                if (searchId == student.getId()) {
+                    System.out.println(student);
+                }
+            }
+
+        } else {
+            System.out.print("Mời bạn nhập tên sinh viên cần tìm: ");
+            String searchName = scanner.nextLine();
+
+            for (Student student : studentList) {
+                if (student.getName().toLowerCase().contains(searchName.toLowerCase())) {
+                    System.out.println(student);
+                }
             }
         }
     }
