@@ -15,7 +15,7 @@ public class LongestConsecutiveSequence {
     }
 
     /**
-     * Phương thức tìm chuỗi có độ dài lớn nhất
+     * Phương thức tìm chuỗi liên tiếp có độ dài lớn nhất
      *
      * @param max:  chuỗi kí tự có độ dài  lớn nhất
      * @param list: danh sách chuỗi kí tự
