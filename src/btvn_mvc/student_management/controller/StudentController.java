@@ -16,7 +16,8 @@ public class StudentController {
                     "2. Xóa học sinh \n" +
                     "3. Xem danh sách học sinh \n" +
                     "4. Tìm kiếm học sinh theo ID hoặc Tên học sinh \n" +
-                    "5. Quay về menu chính. \n" +
+                    "5. Sắp xếp học sinh theo tên học sinh" +
+                    "6. Quay về menu chính. \n" +
                     "Mời bạn nhập lựa chọn: ");
             int choose = Integer.parseInt(sc.nextLine());
             System.out.println("--------------------------------------------");
@@ -38,6 +39,10 @@ public class StudentController {
                     System.out.println("--------------------------------------------");
                     break;
                 case 5:
+                    iStudentService.sortByName();
+                    System.out.println("--------------------------------------------");
+                    break;
+                case 6:
                     return;
             }
         } while (true);

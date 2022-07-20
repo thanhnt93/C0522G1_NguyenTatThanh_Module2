@@ -15,7 +15,8 @@ public class TeacherController {
                     "1. Thêm mới giảng viên \n" +
                     "2. Xóa giảng viên \n" +
                     "3. Xem danh sách giảng viên \n" +
-                    "4. Quay về menu chính. \n" +
+                    "4. Sắp xếp giảng viên theo tên giảng viên" +
+                    "5. Quay về menu chính. \n" +
                     "Mời bạn nhập lựa chọn: ");
             int choose = Integer.parseInt(sc.nextLine());
             System.out.println("--------------------------------------------");
@@ -33,6 +34,10 @@ public class TeacherController {
                     System.out.println("--------------------------------------------");
                     break;
                 case 4:
+                    iTeacherService.sortByName();
+                    System.out.println("--------------------------------------------");
+                    break;
+                case 5:
                     return;
             }
         } while (true);

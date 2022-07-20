@@ -5,6 +5,7 @@ import btvn_mvc.student_management.service.IStudentService;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -105,6 +106,27 @@ public class StudentService implements IStudentService {
             for (Student student : studentList) {
                 if (student.getName().toLowerCase().contains(searchName.toLowerCase())) {
                     System.out.println(student);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void sortByName() {
+        boolean isSwap = true;
+        for (int i = 0; i < studentList.size() && isSwap; i++) {
+            isSwap = false;
+            for (int j = 0; j < studentList.size() - 1 - i; j++) {
+
+                if (studentList.get(j).getName().compareTo(studentList.get(j + 1).getName()) > 0) {
+                    Collections.swap(studentList, j, j + 1);
+                    isSwap = true;
+                }
+
+                if (studentList.get(j).getName().compareTo(studentList.get(j + 1).getName()) == 0) {
+                    if (studentList.get(j).getId() > studentList.get(j + 1).getId()) {
+                        Collections.swap(studentList, j, j + 1);
+                    }
                 }
             }
         }
