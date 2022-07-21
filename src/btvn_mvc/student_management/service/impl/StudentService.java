@@ -1,5 +1,6 @@
 package btvn_mvc.student_management.service.impl;
 
+import btvn_mvc.student_management.exception.DuplicateIDException;
 import btvn_mvc.student_management.model.Student;
 import btvn_mvc.student_management.service.IStudentService;
 
@@ -55,26 +56,34 @@ public class StudentService implements IStudentService {
      */
     @Override
     public void removeStudent() {
-        System.out.println("Mời bạn nhập id cần xóa: ");
-        int idRemove = Integer.parseInt(scanner.nextLine());
-        boolean isFlag = false;
-        for (Student student : studentList) {
-            if (student.getId() == idRemove) {
-                System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
-                        "1. Có \n" +
-                        "2. Không");
-                int chooseYesNo = Integer.parseInt(scanner.nextLine());
-                if (chooseYesNo == 1) {
-                    studentList.remove(student);
-                    System.out.println("Xóa thành công!.");
-                }
-                isFlag = true;
-                break;
+        System.out.println("Mời bạn nhập ID cần xóa");
+        int idRemove = 0;
+        while (true) {
+            try {
+                idRemove = Integer.parseInt(scanner.nextLine());
+                boolean isFlag = false;
+                for (Student student : studentList) {
+                    if (student.getId() == idRemove) {
+                        System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
+                                "1. Có \n" +
+                                "2. Không");
+                        int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                        if (chooseYesNo == 1) {
+                            studentList.remove(student);
+                            System.out.println("Xóa thành công!.");
+                        }
+                        isFlag = true;
+                        break;
 
+                    }
+                }
+                if (!isFlag) {
+                    System.out.println("Không tìm thấy");
+                }
+                return;
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn có chắc mình nhập đúng ID");
             }
-        }
-        if (!isFlag) {
-            System.out.println("Không tìm thấy");
         }
     }
 
@@ -140,7 +149,25 @@ public class StudentService implements IStudentService {
     public static Student infoStudent() {
         System.out.println("--NHẬP THÔNG TIN HỌC SINH--");
         System.out.print("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = 0;
+        while (true) {
+            try {
+                id = Integer.parseInt(scanner.nextLine());
+                System.out.println("ID : " + id);
+                for (Student student:studentList){
+                    if (student.getId()==id){
+                        throw new DuplicateIDException("ID đã có,vui lòng nhập lại");
+                    }
+                }
+                break;
+            } catch (NumberFormatException e ) {
+                System.out.println("Bạn có chắc mình nhập đúng,hãy nhập lại");
+            }
+            catch (DuplicateIDException e){
+                System.out.println(e.getMessage());
+            }
+        }
+
         System.out.print("Nhập name: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh: ");
@@ -150,7 +177,16 @@ public class StudentService implements IStudentService {
         System.out.print("Nhập Lớp: ");
         String classed = scanner.nextLine();
         System.out.print("Nhập điểm: ");
-        int point = Integer.parseInt(scanner.nextLine());
+        int point = 0;
+        while (true) {
+            try {
+                point = Integer.parseInt(scanner.nextLine());
+                System.out.println("Điểm: " + point);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn có chắc mình nhập đúng,hãy nhập lại");
+            }
+        }
 
         return new Student(id, name, dateOfBirth, sex, classed, point);
     }

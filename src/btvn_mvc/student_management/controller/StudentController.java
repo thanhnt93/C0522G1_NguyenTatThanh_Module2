@@ -16,7 +16,7 @@ public class StudentController {
                     "2. Xóa học sinh \n" +
                     "3. Xem danh sách học sinh \n" +
                     "4. Tìm kiếm học sinh theo ID hoặc Tên học sinh \n" +
-                    "5. Sắp xếp học sinh theo tên học sinh" +
+                    "5. Sắp xếp học sinh theo tên học sinh \n" +
                     "6. Quay về menu chính. \n" +
                     "Mời bạn nhập lựa chọn: ");
             int choose = Integer.parseInt(sc.nextLine());
