@@ -18,8 +18,8 @@ public class StudentService implements IStudentService {
     private static Scanner scanner = new Scanner(System.in);
     private static final String PATH = "src/btvn_mvc/student_management/data/student.csv";
 
-    static {
-
+//    static {
+//
 //        Student student1 = new Student(1, "Nguyễn Tất Thành", "24-02-2000", "Nam", "C052G1", 10);
 //        Student student2 = new Student(2, "Nguyễn Tấn Huân", "26-09-2000", "Nam", "C052G1", 7);
 //        Student student3 = new Student(3, "Bùi Hùng", "28-12-2000", "Nam", "C052G1", 6);
@@ -31,7 +31,7 @@ public class StudentService implements IStudentService {
 //        studentList.add(student3);
 //        studentList.add(student4);
 //        studentList.add(student5);
-    }
+//    }
 
     /**
      * Phương thức thêm học sinh vào studentList
@@ -43,6 +43,7 @@ public class StudentService implements IStudentService {
         System.out.println("Thêm mới thành công!. ");
         try {
             WriteFileUtil.writeStudentFile(PATH, addStudent);
+            studentList.add(student);
             addStudent.remove(0);
         } catch (IOException e) {
             e.printStackTrace();

@@ -11,6 +11,10 @@ public class Teacher extends Person{
     public Teacher() {
     }
 
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s\n", this.getId(), this.getName(), this.getDateOfBirth(), this.getSex(), this.getSpecialize());
+    }
+
     public String getSpecialize() {
         return specialize;
     }

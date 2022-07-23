@@ -23,6 +23,7 @@ public class MainController {
                 }
                 case 2: {
                     teacherController.menuTeacher();
+                    break;
                 }
                 case 3: {
                     System.exit(1);

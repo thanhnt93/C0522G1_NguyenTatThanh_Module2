@@ -15,7 +15,7 @@ public class TeacherController {
                     "1. Thêm mới giảng viên \n" +
                     "2. Xóa giảng viên \n" +
                     "3. Xem danh sách giảng viên \n" +
-                    "4. Sắp xếp giảng viên theo tên giảng viên" +
+                    "4. Sắp xếp giảng viên theo tên giảng viên\n" +
                     "5. Quay về menu chính. \n" +
                     "Mời bạn nhập lựa chọn: ");
             int choose = Integer.parseInt(sc.nextLine());
