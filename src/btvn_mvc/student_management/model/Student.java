@@ -22,6 +22,10 @@ public class Student extends Person {
         this.point = point;
     }
 
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s\n", this.getId(), this.getName(), this.getDateOfBirth(), this.getSex(), this.getClassed(), this.getPoint());
+    }
+
     public int getPoint() {
         return point;
     }

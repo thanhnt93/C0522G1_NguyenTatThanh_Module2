@@ -3,8 +3,11 @@ package btvn_mvc.student_management.service.impl;
 import btvn_mvc.student_management.exception.DuplicateIDException;
 import btvn_mvc.student_management.model.Student;
 import btvn_mvc.student_management.service.IStudentService;
+import btvn_mvc.student_management.utils.ReadFileUtil;
+import btvn_mvc.student_management.utils.WriteFileUtil;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,20 +16,21 @@ import java.util.Scanner;
 public class StudentService implements IStudentService {
     private static List<Student> studentList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    private static final String PATH = "src/btvn_mvc/student_management/data/student.csv";
 
     static {
 
-        Student student1 = new Student(1, "Nguyễn Tất Thành", "24-02-2000", "Nam", "C052G1", 10);
-        Student student2 = new Student(2, "Nguyễn Tấn Huân", "26-09-2000", "Nam", "C052G1", 7);
-        Student student3 = new Student(3, "Bùi Hùng", "28-12-2000", "Nam", "C052G1", 6);
-        Student student4 = new Student(4, "Lê Đại Lợi", "30-08-2000", "Nam", "C052G1", 8);
-        Student student5 = new Student(5, "Huỳnh Trung Thuyên", "01-12-2000", "Nam", "C052G1", 9);
-
-        studentList.add(student1);
-        studentList.add(student2);
-        studentList.add(student3);
-        studentList.add(student4);
-        studentList.add(student5);
+//        Student student1 = new Student(1, "Nguyễn Tất Thành", "24-02-2000", "Nam", "C052G1", 10);
+//        Student student2 = new Student(2, "Nguyễn Tấn Huân", "26-09-2000", "Nam", "C052G1", 7);
+//        Student student3 = new Student(3, "Bùi Hùng", "28-12-2000", "Nam", "C052G1", 6);
+//        Student student4 = new Student(4, "Lê Đại Lợi", "30-08-2000", "Nam", "C052G1", 8);
+//        Student student5 = new Student(5, "Huỳnh Trung Thuyên", "01-12-2000", "Nam", "C052G1", 9);
+//
+//        studentList.add(student1);
+//        studentList.add(student2);
+//        studentList.add(student3);
+//        studentList.add(student4);
+//        studentList.add(student5);
     }
 
     /**
@@ -36,6 +40,11 @@ public class StudentService implements IStudentService {
         Student student = infoStudent();
         studentList.add(student);
         System.out.println("Thêm mới thành công!. ");
+        try {
+            WriteFileUtil.writeStudentFile(PATH, studentList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -43,6 +52,11 @@ public class StudentService implements IStudentService {
      */
     @Override
     public void displayAllStudent() {
+        try {
+            studentList = ReadFileUtil.readStudentFile(PATH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         for (Student student : studentList) {
             System.out.println(student);
         }
