@@ -39,4 +39,26 @@ public class WriteFileUtil {
 
         writeFile(path, data);
     }
+
+    /**
+     * Phương thức viết file
+     * @param path: đường dẫn của file
+     * @param data: dữ liệu được viết vào
+     * @throws IOException: Ném ra ngoại lệ không mong muốn
+     */
+    private static void writeFileRemove(String path, String data) throws IOException {
+        File file = new File(path);
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
+        bufferedWriter.write(data);
+        bufferedWriter.close();
+    }
+
+    public static void writeStudentFileRemove(String path, List<Student> students) throws IOException {
+        String data = "";
+        for (Student student: students){
+            data += student.getInfo();
+        }
+
+        writeFileRemove(path, data);
+    }
 }

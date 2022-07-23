@@ -37,11 +37,13 @@ public class StudentService implements IStudentService {
      * Phương thức thêm học sinh vào studentList
      */
     public void addStudent() {
+        List<Student> addStudent = new ArrayList<>();
         Student student = infoStudent();
-        studentList.add(student);
+        addStudent.add(student);
         System.out.println("Thêm mới thành công!. ");
         try {
-            WriteFileUtil.writeStudentFile(PATH, studentList);
+            WriteFileUtil.writeStudentFile(PATH, addStudent);
+            addStudent.remove(0);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,6 +87,12 @@ public class StudentService implements IStudentService {
                         if (chooseYesNo == 1) {
                             studentList.remove(student);
                             System.out.println("Xóa thành công!.");
+
+                            try {
+                                WriteFileUtil.writeStudentFileRemove(PATH, studentList);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                         isFlag = true;
                         break;
@@ -168,16 +176,15 @@ public class StudentService implements IStudentService {
             try {
                 id = Integer.parseInt(scanner.nextLine());
                 System.out.println("ID : " + id);
-                for (Student student:studentList){
-                    if (student.getId()==id){
+                for (Student student : studentList) {
+                    if (student.getId() == id) {
                         throw new DuplicateIDException("ID đã có,vui lòng nhập lại");
                     }
                 }
                 break;
-            } catch (NumberFormatException e ) {
+            } catch (NumberFormatException e) {
                 System.out.println("Bạn có chắc mình nhập đúng,hãy nhập lại");
-            }
-            catch (DuplicateIDException e){
+            } catch (DuplicateIDException e) {
                 System.out.println(e.getMessage());
             }
         }
