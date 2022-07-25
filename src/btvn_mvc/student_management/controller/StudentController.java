@@ -40,6 +40,7 @@ public class StudentController {
                     break;
                 case 5:
                     iStudentService.sortByName();
+                    System.out.println("Đã sắp xếp");
                     System.out.println("--------------------------------------------");
                     break;
                 case 6:

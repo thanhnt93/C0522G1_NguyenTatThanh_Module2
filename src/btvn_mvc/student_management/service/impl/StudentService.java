@@ -77,6 +77,7 @@ public class StudentService implements IStudentService {
         int idRemove = 0;
         while (true) {
             try {
+                studentList = ReadFileUtil.readStudentFile(PATH);
                 idRemove = Integer.parseInt(scanner.nextLine());
                 boolean isFlag = false;
                 for (Student student : studentList) {
@@ -104,7 +105,7 @@ public class StudentService implements IStudentService {
                     System.out.println("Không tìm thấy");
                 }
                 return;
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException | IOException e) {
                 System.out.println("Bạn có chắc mình nhập đúng ID");
             }
         }
@@ -120,7 +121,11 @@ public class StudentService implements IStudentService {
                 "2. Tìm kiếm theo tên. \n" +
                 "Lựa chọn của bạn: ");
         int choose = Integer.parseInt(scanner.nextLine());
-
+        try {
+            studentList = ReadFileUtil.readStudentFile(PATH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (choose == 1) {
             System.out.print("Mời bạn nhập id sinh viên cần tìm: ");
             int searchId = Integer.parseInt(scanner.nextLine());
@@ -146,6 +151,11 @@ public class StudentService implements IStudentService {
     @Override
     public void sortByName() {
         boolean isSwap = true;
+        try {
+            studentList = ReadFileUtil.readStudentFile(PATH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         for (int i = 0; i < studentList.size() && isSwap; i++) {
             isSwap = false;
             for (int j = 0; j < studentList.size() - 1 - i; j++) {
@@ -157,11 +167,17 @@ public class StudentService implements IStudentService {
 
                 if (studentList.get(j).getName().compareTo(studentList.get(j + 1).getName()) == 0) {
                     if (studentList.get(j).getId() > studentList.get(j + 1).getId()) {
-                        Collections.swap(studentList, j, j + 1);
+                       Collections.swap(studentList, j, j + 1);
                     }
                 }
             }
         }
+        try {
+            WriteFileUtil.writeStudentFileRemove(PATH, studentList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
