@@ -2,7 +2,7 @@ package btvn_mvc.student_management.service.impl;
 
 import btvn_mvc.student_management.exception.DuplicateIDException;
 import btvn_mvc.student_management.model.Student;
-import btvn_mvc.student_management.regex.Regex;
+import btvn_mvc.student_management.utils.Regex;
 import btvn_mvc.student_management.service.IStudentService;
 import btvn_mvc.student_management.utils.ReadFileUtil;
 import btvn_mvc.student_management.utils.WriteFileUtil;
