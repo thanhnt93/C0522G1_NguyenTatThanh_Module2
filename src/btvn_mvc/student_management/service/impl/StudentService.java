@@ -2,7 +2,7 @@ package btvn_mvc.student_management.service.impl;
 
 import btvn_mvc.student_management.exception.DuplicateIDException;
 import btvn_mvc.student_management.model.Student;
-import btvn_mvc.student_management.utils.Regex;
+import btvn_mvc.student_management.utils.StringAndRegex;
 import btvn_mvc.student_management.service.IStudentService;
 import btvn_mvc.student_management.utils.ReadFileUtil;
 import btvn_mvc.student_management.utils.WriteFileUtil;
@@ -204,17 +204,14 @@ public class StudentService implements IStudentService {
             }
         }
 
-
         System.out.print("Nhập name: ");
-        String name = getName();
-
+        String name =  StringAndRegex.standardizedName(SCANNER.nextLine());
 
         String dateOfBirth;
-
         while (true) {
             System.out.print("Nhập ngày sinh: ");
             dateOfBirth = SCANNER.nextLine();
-            if (dateOfBirth.matches(Regex.REGEXDATEOFBIRTH)) {
+            if (dateOfBirth.matches(StringAndRegex.REGEXDATEOFBIRTH)) {
                 break;
             } else {
                 System.out.println("Bạn nhập sai, vui lòng nhập lại");
@@ -237,24 +234,5 @@ public class StudentService implements IStudentService {
         }
 
         return new Student(id, name, dateOfBirth, sex, classed, point);
-    }
-
-
-    public static String getName() {
-        String name = SCANNER.nextLine();
-        String[] arr = name.toLowerCase().trim().split("");
-        StringBuilder str = new StringBuilder().append(arr[0].toUpperCase());
-        for (int i = 1; i < arr.length; i++) {
-            if (!arr[i].equals(" ")) {
-                if (arr[i - 1].equals(" ")) {
-                    str.append(arr[i].toUpperCase());
-                } else {
-                    str.append(arr[i]);
-                }
-            } else if (!arr[i + 1].equals(" ")) {
-                str.append(arr[i]);
-            }
-        }
-        return str.toString();
     }
 }
