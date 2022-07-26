@@ -175,12 +175,6 @@ public class StudentService implements IStudentService {
                 }
             }
         }
-        try {
-            WriteFileUtil.writeStudentFileRemove(PATH, studentList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
     }
 
     /**
