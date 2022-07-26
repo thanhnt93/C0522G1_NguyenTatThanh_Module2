@@ -2,20 +2,18 @@ package btvn_mvc.student_management.service.impl;
 
 import btvn_mvc.student_management.exception.DuplicateIDException;
 import btvn_mvc.student_management.model.Student;
+import btvn_mvc.student_management.regex.Regex;
 import btvn_mvc.student_management.service.IStudentService;
 import btvn_mvc.student_management.utils.ReadFileUtil;
 import btvn_mvc.student_management.utils.WriteFileUtil;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class StudentService implements IStudentService {
     private static List<Student> studentList = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
+    private final static Scanner SCANNER = new Scanner(System.in);
     private static final String PATH = "src/btvn_mvc/student_management/data/student.csv";
 
 //    static {
@@ -38,7 +36,12 @@ public class StudentService implements IStudentService {
      */
     public void addStudent() {
         List<Student> addStudent = new ArrayList<>();
-        Student student = infoStudent();
+        Student student = null;
+        try {
+            student = infoStudent();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         addStudent.add(student);
         System.out.println("Thêm mới thành công!. ");
         try {
@@ -78,14 +81,14 @@ public class StudentService implements IStudentService {
         while (true) {
             try {
                 studentList = ReadFileUtil.readStudentFile(PATH);
-                idRemove = Integer.parseInt(scanner.nextLine());
+                idRemove = Integer.parseInt(SCANNER.nextLine());
                 boolean isFlag = false;
                 for (Student student : studentList) {
                     if (student.getId() == idRemove) {
                         System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
                                 "1. Có \n" +
                                 "2. Không");
-                        int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                        int chooseYesNo = Integer.parseInt(SCANNER.nextLine());
                         if (chooseYesNo == 1) {
                             studentList.remove(student);
                             System.out.println("Xóa thành công!.");
@@ -120,7 +123,7 @@ public class StudentService implements IStudentService {
                 "1. Tìm kiếm theo id. \n" +
                 "2. Tìm kiếm theo tên. \n" +
                 "Lựa chọn của bạn: ");
-        int choose = Integer.parseInt(scanner.nextLine());
+        int choose = Integer.parseInt(SCANNER.nextLine());
         try {
             studentList = ReadFileUtil.readStudentFile(PATH);
         } catch (IOException e) {
@@ -128,7 +131,7 @@ public class StudentService implements IStudentService {
         }
         if (choose == 1) {
             System.out.print("Mời bạn nhập id sinh viên cần tìm: ");
-            int searchId = Integer.parseInt(scanner.nextLine());
+            int searchId = Integer.parseInt(SCANNER.nextLine());
 
             for (Student student : studentList) {
                 if (searchId == student.getId()) {
@@ -138,7 +141,7 @@ public class StudentService implements IStudentService {
 
         } else {
             System.out.print("Mời bạn nhập tên sinh viên cần tìm: ");
-            String searchName = scanner.nextLine();
+            String searchName = SCANNER.nextLine();
 
             for (Student student : studentList) {
                 if (student.getName().toLowerCase().contains(searchName.toLowerCase())) {
@@ -167,7 +170,7 @@ public class StudentService implements IStudentService {
 
                 if (studentList.get(j).getName().compareTo(studentList.get(j + 1).getName()) == 0) {
                     if (studentList.get(j).getId() > studentList.get(j + 1).getId()) {
-                       Collections.swap(studentList, j, j + 1);
+                        Collections.swap(studentList, j, j + 1);
                     }
                 }
             }
@@ -185,13 +188,14 @@ public class StudentService implements IStudentService {
      *
      * @return trả về thông tin học sinh
      */
-    public static Student infoStudent() {
+    public static Student infoStudent() throws IOException {
         System.out.println("--NHẬP THÔNG TIN HỌC SINH--");
         System.out.print("Nhập id: ");
         int id = 0;
+        studentList = ReadFileUtil.readStudentFile(PATH);
         while (true) {
             try {
-                id = Integer.parseInt(scanner.nextLine());
+                id = Integer.parseInt(SCANNER.nextLine());
                 System.out.println("ID : " + id);
                 for (Student student : studentList) {
                     if (student.getId() == id) {
@@ -206,19 +210,31 @@ public class StudentService implements IStudentService {
             }
         }
 
+
         System.out.print("Nhập name: ");
-        String name = scanner.nextLine();
-        System.out.print("Nhập ngày sinh: ");
-        String dateOfBirth = scanner.nextLine();
+        String name = getName();
+
+
+        String dateOfBirth;
+
+        while (true) {
+            System.out.print("Nhập ngày sinh: ");
+            dateOfBirth = SCANNER.nextLine();
+            if (dateOfBirth.matches(Regex.REGEXDATEOFBIRTH)) {
+                break;
+            } else {
+                System.out.println("Bạn nhập sai, vui lòng nhập lại");
+            }
+        }
         System.out.print("Nhập giới tính: ");
-        String sex = scanner.nextLine();
+        String sex = SCANNER.nextLine();
         System.out.print("Nhập Lớp: ");
-        String classed = scanner.nextLine();
+        String classed = SCANNER.nextLine();
         System.out.print("Nhập điểm: ");
         int point = 0;
         while (true) {
             try {
-                point = Integer.parseInt(scanner.nextLine());
+                point = Integer.parseInt(SCANNER.nextLine());
                 System.out.println("Điểm: " + point);
                 break;
             } catch (NumberFormatException e) {
@@ -229,4 +245,22 @@ public class StudentService implements IStudentService {
         return new Student(id, name, dateOfBirth, sex, classed, point);
     }
 
+
+    public static String getName() {
+        String name = SCANNER.nextLine();
+        String[] arr = name.toLowerCase().trim().split("");
+        StringBuilder str = new StringBuilder().append(arr[0].toUpperCase());
+        for (int i = 1; i < arr.length; i++) {
+            if (!arr[i].equals(" ")) {
+                if (arr[i - 1].equals(" ")) {
+                    str.append(arr[i].toUpperCase());
+                } else {
+                    str.append(arr[i]);
+                }
+            } else if (!arr[i + 1].equals(" ")) {
+                str.append(arr[i]);
+            }
+        }
+        return str.toString();
+    }
 }
