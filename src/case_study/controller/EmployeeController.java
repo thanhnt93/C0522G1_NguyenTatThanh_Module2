@@ -5,18 +5,18 @@ import btvn_mvc.student_management.service.impl.StudentService;
 
 import java.util.Scanner;
 
-public class CustomerManagementController {
+public class EmployeeController {
     private Scanner sc = new Scanner(System.in);
     IStudentService iStudentService = new StudentService();
 
     public void menuEmployee() {
         do {
-            System.out.print("--EMPLOYEE MANAGEMENT-- \n" +
-                    "1. Display list customers\n" +
-                    "2. Add new employee\n" +
-                    "3. Edit employee\n" +
-                    "4. Return main menu\n" +
-                    "Enter: ");
+            System.out.print("--QUẢN LÝ NHÂN VIÊN-- \n" +
+                    "1. Hiển thị danh sách nhân viên.\n" +
+                    "2. Thêm mới nhân viên.\n" +
+                    "3. Chỉnh sửa nhân viên.\n" +
+                    "4. Trở về MENU chính.\n" +
+                    "Mời bạn chọn: ");
             int choose = Integer.parseInt(sc.nextLine());
             System.out.println("--------------------------------------------");
             switch (choose) {
