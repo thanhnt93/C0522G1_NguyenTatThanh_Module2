@@ -1,14 +1,15 @@
 package case_study.model;
 
-public class House extends Furama{
+public class House extends Facility {
     private String roomStandard;
     private int numberOfFloors;
 
     public House() {
     }
 
-    public House(String serviceName, double usableArea, double rentalCosts, int maximumNumberOfPeople, String rentalType, String roomStandard, int numberOfFloors) {
-        super(serviceName, usableArea, rentalCosts, maximumNumberOfPeople, rentalType);
+    public House(String serviceCode, String serviceName, double areaUse, double rentalCosts, int maxNumberOfPeople,
+                 String rentalType, String roomStandard, int numberOfFloors) {
+        super(serviceCode, serviceName, areaUse, rentalCosts, maxNumberOfPeople, rentalType);
         this.roomStandard = roomStandard;
         this.numberOfFloors = numberOfFloors;
     }
@@ -29,11 +30,15 @@ public class House extends Furama{
         this.numberOfFloors = numberOfFloors;
     }
 
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s", this.getServiceCode(), this.getServiceName(), this.getAreaUse(),
+                this.getRentalCosts(), this.getMaxNumberOfPeople(), this.getRentalType(), this.getRoomStandard(), this.getNumberOfFloors());
+    }
+
     @Override
     public String toString() {
-        return super.toString() + " House{" +
-                "roomStandard='" + roomStandard + '\'' +
-                ", numberOfFloors=" + numberOfFloors +
-                '}';
+        return "HOUSE: " + super.toString() +
+                ", Tiêu chuẩn phòng: " + roomStandard +
+                ", Số tầng: " + numberOfFloors;
     }
 }

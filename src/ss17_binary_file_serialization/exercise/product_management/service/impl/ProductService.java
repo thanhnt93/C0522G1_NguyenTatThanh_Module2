@@ -2,8 +2,6 @@ package ss17_binary_file_serialization.exercise.product_management.service.impl;
 
 import btvn_mvc.student_management.exception.DuplicateIDException;
 
-import btvn_mvc.student_management.model.Student;
-import btvn_mvc.student_management.utils.ReadFileUtil;
 import ss17_binary_file_serialization.exercise.product_management.model.Product;
 import ss17_binary_file_serialization.exercise.product_management.service.IProductService;
 import ss17_binary_file_serialization.exercise.product_management.utils.ReadFile;

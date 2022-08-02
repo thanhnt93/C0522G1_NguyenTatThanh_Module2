@@ -60,12 +60,11 @@ public abstract class Furama {
 
     @Override
     public String toString() {
-        return "Furama{" +
-                "serviceName='" + serviceName + '\'' +
-                ", usableArea=" + usableArea +
-                ", RentalCosts=" + RentalCosts +
-                ", maximumNumberOfPeople=" + maximumNumberOfPeople +
-                ", rentalType='" + rentalType + '\'' +
-                '}';
+        return "FURAMA: " +
+                "Tên dịch vụ: " + serviceName +
+                ", Diện tích sử dụng: " + usableArea +
+                ", Chi phí thuê: " + RentalCosts +
+                ", Số lượng người tối đa: " + maximumNumberOfPeople +
+                ", Kiểu thuê: " + rentalType;
     }
 }

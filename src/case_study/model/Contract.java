@@ -60,12 +60,11 @@ public class Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
-                "numberContract=" + numberContract +
-                ", bookingId=" + bookingId +
-                ", depositMoney=" + depositMoney +
-                ", sumMoney=" + sumMoney +
-                ", customerId=" + customerId +
-                '}';
+        return "HỢP ĐỒNG: " +
+                " Số hợp đồng: " + numberContract +
+                ", Mã booking: " + bookingId +
+                ", Số tiền cọc trước: " + depositMoney +
+                ", Tổng số tiền thanh toán: " + sumMoney +
+                ", Mã khách hàng: " + customerId;
     }
 }

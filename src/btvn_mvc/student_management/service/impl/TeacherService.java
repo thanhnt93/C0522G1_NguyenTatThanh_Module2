@@ -1,7 +1,6 @@
 package btvn_mvc.student_management.service.impl;
 
 import btvn_mvc.student_management.exception.DuplicateIDException;
-import btvn_mvc.student_management.model.Student;
 import btvn_mvc.student_management.model.Teacher;
 import btvn_mvc.student_management.service.ITeacherService;
 import btvn_mvc.student_management.utils.ReadFileUtil;
